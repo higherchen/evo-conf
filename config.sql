@@ -69,4 +69,13 @@ CREATE TABLE `config_release` (
   `creator` varchar(16) NOT NULL DEFAULT '' COMMENT '发布人',
   `ctime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '配置发布表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '发布记录表';
+
+-- TODO
+CREATE TABLE `config_item_online` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '配置ID',
+  `namespace_id` int(10) NOT NULL DEFAULT '0' COMMENT '所属命名空间ID',
+  `key` varchar(128) NOT NULL DEFAULT 'default' COMMENT '配置项Key',
+  `value` longtext NOT NULL COMMENT '配置项值',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '线上配置表';
